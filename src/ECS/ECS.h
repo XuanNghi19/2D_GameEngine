@@ -1,0 +1,123 @@
+#pragma once
+#include <iostream>
+#include <vector>
+#include <memory>
+#include <algorithm>
+#include <bitset>
+#include <array>
+#include "../TextureManager.h"
+
+class Component;
+class Entity;
+
+using ComponentID = std::size_t;
+inline ComponentID getComponentTypeID()
+{
+	static ComponentID LastID = 0;
+	return LastID++;
+}
+template <typename T> inline ComponentID getComponentTypeID() noexcept
+{
+	static ComponentID typeID = getComponentTypeID();
+	return typeID;
+}
+
+constexpr std::size_t maxComponents = 32;
+using ComponentBitSet = std::bitset<maxComponents>; // khai bao mot chuoi bitset dai 32 bit la cac phan tu bool mang gia tri 0 hoac 1
+using ComponentArray = std::array<Component*, maxComponents>; // khai bao mot lop std::array, co kieu du lieu la con tro Component, va so phan tu la maxComponent,
+
+class Component
+{
+public:
+	Entity* entity;
+
+	virtual void init() {}
+	virtual void update() {}
+	virtual void draw() {}
+
+	virtual ~Component() {}
+};
+
+class Entity
+{
+private:
+	bool active = true;
+	std::vector<std::unique_ptr<Component>> components;
+
+	ComponentArray componentArray;
+
+	ComponentBitSet componentBitSet;
+public:
+	void update()
+	{
+		for (auto& c : components) c->update();
+		
+	}
+
+	void draw() 
+	{
+		for (auto& c : components) c->draw();
+	}
+	 
+	const bool isActive() { return active; }
+	void Destroy() { active = false; }
+
+	template <typename T> bool hascomponent() const
+	{
+		return componentBitSet[getComponentTypeID<T>()];
+	}
+
+	template <typename T, typename... TArgs>
+	T& addComponent(TArgs... mArgs)
+	{
+		T* c(new T(std::forward<TArgs>(mArgs)...));
+		c->entity = this;
+		std::unique_ptr<Component> uPtr{ c };
+		components.emplace_back(std::move(uPtr));
+
+		componentArray[getComponentTypeID<T>()] = c;
+		componentBitSet[getComponentTypeID<T>()] = true;
+
+		c->init();
+		return *c;
+	}
+
+	template<typename T> T& getComponent() const
+	{
+		auto ptr(componentArray[getComponentTypeID<T>()]);
+		return *static_cast<T*>(ptr);
+	}
+};
+
+class Manager
+{
+private:
+	std::vector<std::unique_ptr<Entity>> entities;
+
+public:
+	void update()
+	{
+		for (auto& e : entities) e->update();
+	}
+	void draw()
+	{
+		for (auto& e : entities) e->draw();
+	}
+	void refresh()
+	{
+		entities.erase(std::remove_if(std::begin(entities), std::end(entities),
+			[](const std::unique_ptr<Entity>& mEntity)
+			{
+				return !mEntity->isActive();
+			}),
+			std::end(entities));
+	}
+
+	Entity& addEntity()
+	{
+		Entity* e = new Entity;
+		std::unique_ptr<Entity> uPtr{ e };
+		entities.emplace_back(std::move(uPtr));
+		return *e;
+	}
+};
