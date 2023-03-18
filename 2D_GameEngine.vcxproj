@@ -19,16 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Collision.cpp" />
+    <ClCompile Include="src\ECS\Collision.cpp" />
     <ClCompile Include="src\ECS\ECS.cpp" />
     <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\GameObject.h" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ECS\Animation.h" />
     <ClInclude Include="src\ECS\ColliderComponent.h" />
     <ClInclude Include="src\ECS\Collision.h" />
     <ClInclude Include="src\ECS\Components.h" />
@@ -46,11 +46,15 @@
     <Image Include="assets\dirt.png" />
     <Image Include="assets\grass.png" />
     <Image Include="assets\mage.png" />
+    <Image Include="assets\mage_animations.png" />
+    <Image Include="assets\mage_idle.png" />
     <Image Include="assets\slime.png" />
+    <Image Include="assets\terrain_ss.png" />
     <Image Include="assets\wall.png" />
     <Image Include="assets\water.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\map.map" />
     <None Include="assets\p16x16.map" />
     <None Include="libpng16-16.dll" />
     <None Include="SDL2.dll" />

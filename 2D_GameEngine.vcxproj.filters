@@ -1,83 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="assets">
       <UniqueIdentifier>{5bd2a287-c9c3-4b50-b359-093566aea25c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ECS">
+    <Filter Include="src">
+      <UniqueIdentifier>{906a17fe-372d-46f0-b039-027a26c488c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ECS">
       <UniqueIdentifier>{771128e3-e214-4b24-9163-ac37f74f7297}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ECS\ECS.cpp">
+      <Filter>src\ECS</Filter>
+    </ClCompile>
     <ClCompile Include="src\Game.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TextureManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Map.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureManager.cpp">
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Vector2D.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Collision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS\ECS.cpp">
-      <Filter>Header Files\ECS</Filter>
+    <ClCompile Include="src\ECS\Collision.cpp">
+      <Filter>src\ECS</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Map.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\ECS\SpriteComponent.h">
-      <Filter>Header Files\ECS</Filter>
+      <Filter>src\ECS</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\Components.h">
-      <Filter>Header Files\ECS</Filter>
+      <Filter>src\ECS</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\ECS.h">
-      <Filter>Header Files\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Vector2D.h">
-      <Filter>Header Files</Filter>
+      <Filter>src\ECS</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\KeyboardController.h">
-      <Filter>Header Files\ECS</Filter>
+      <Filter>src\ECS</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\TransformComponent.h">
-      <Filter>Header Files\ECS</Filter>
+      <Filter>src\ECS</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\ColliderComponent.h">
-      <Filter>Header Files\ECS</Filter>
+      <Filter>src\ECS</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\Collision.h">
-      <Filter>Header Files\ECS</Filter>
+      <Filter>src\ECS</Filter>
     </ClInclude>
     <ClInclude Include="src\ECS\TileComponent.h">
-      <Filter>Header Files\ECS</Filter>
+      <Filter>src\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Map.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vector2D.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS\Animation.h">
+      <Filter>src\ECS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -99,21 +94,33 @@
     <Image Include="assets\wall.png">
       <Filter>assets</Filter>
     </Image>
+    <Image Include="assets\mage_idle.png">
+      <Filter>assets</Filter>
+    </Image>
+    <Image Include="assets\mage_animations.png">
+      <Filter>assets</Filter>
+    </Image>
+    <Image Include="assets\terrain_ss.png">
+      <Filter>assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\p16x16.map">
+      <Filter>assets</Filter>
+    </None>
     <None Include="libpng16-16.dll">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </None>
     <None Include="SDL2.dll">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </None>
     <None Include="SDL2_image.dll">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </None>
     <None Include="zlib1.dll">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </None>
-    <None Include="assets\p16x16.map">
+    <None Include="assets\map.map">
       <Filter>assets</Filter>
     </None>
   </ItemGroup>

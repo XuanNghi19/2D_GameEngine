@@ -32,6 +32,13 @@ public:
 		position.x = x;
 		position.y = x;
 	}
+		
+	TransformComponent(int w, int h, int sc)
+	{
+		width = w;
+		height = h;
+		scale = sc;
+	}
 
 	TransformComponent(float x, float y, int w, int h, int sc)
 	{
