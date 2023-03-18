@@ -21,6 +21,7 @@ void Map::LoadMap(std::string path, int sizeX, int sizeY)
 
 	for (int y = 0; y < sizeY; y++)
 	{
+
 		mapFile.ignore();
 
 		for (int x = 0; x < sizeX; x++)
